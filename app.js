@@ -25,7 +25,6 @@ io.on('connection', socket => {
 
   socket.on('new_message', message => {
     message = JSON.parse(message)
-    message = { ...message, date: new Date().toLocaleString() }
     messages.create(message)
     io.emit('new_message', JSON.stringify(message))
   })

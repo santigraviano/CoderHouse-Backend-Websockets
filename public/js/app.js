@@ -53,7 +53,7 @@ $chat_form.addEventListener('submit', e => {
 
   $message.value = null
 
-  socket.emit('new_message', JSON.stringify({ email, message }))
+  socket.emit('new_message', JSON.stringify({ email, message, date: new Date().toLocaleString() }))
 })
 
 socket.on('new_message', async (message) => {
