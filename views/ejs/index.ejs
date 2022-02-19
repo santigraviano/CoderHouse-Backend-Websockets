@@ -1,0 +1,24 @@
+<%- include('partials/header') -%>
+<div class="row">
+  <div class="col-6 offset-3">
+    <h2 class="h2">Ingresar producto</h2>
+    <br>
+    <form action="/productos" method="post">
+      <div class="mb-3">
+        <label for="title" class="form-label">Nombre</label>
+        <input type="text" name="title" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Precio</label>
+        <input type="number" name="price" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="thumbnail" class="form-label">Foto URL</label>
+        <input type="text" name="thumbnail" class="form-control">
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+</div>
+<%- include('partials/footer') -%>

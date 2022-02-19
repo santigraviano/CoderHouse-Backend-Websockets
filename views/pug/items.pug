@@ -1,0 +1,25 @@
+extends layouts/main.pug
+block content
+  div(class="row")
+    div(class="col-6 offset-3")
+      h2(class="h2") Vista de productos
+      br
+      if items.length > 0
+        table(class="table table-dark")
+          thead
+            tr
+              th Nombre
+              th Precio 
+              th Foto 
+          tbody 
+          each item in items
+            tr
+            td(class="align-middle")= item.title
+            td(class="align-middle")= item.price
+            td
+              img(src=item.thumbnail class="product-img")
+      
+      else 
+        div(class="card text-dark bg-warning")
+          div(class="card-body")
+            p(class="card-text") No se encontraron productos
