@@ -2,18 +2,17 @@ const fs = require('fs')
 const path = require('path')
 
 class Table {
-  static id = 0
-
   constructor(table) {
+    this.id = 0
     this.path = path.join(__dirname, `/db/${table}.json`)
 
     // If file exists read it and assign its value to this.items
     if (fs.existsSync(this.path)) {
       this.items = JSON.parse(fs.readFileSync(this.path))
 
-      // If there are items assign Table.id to be equal to the last item's id
+      // If there are items assign this.id to be equal to the last item's id
       if (this.items.length > 0) {
-        Table.id = this.items[this.items.length - 1].id
+        this.id = parseInt(this.items[this.items.length - 1].id)
       }
 
     }
@@ -33,9 +32,9 @@ class Table {
   }
 
   create(data) {
-    Table.id += 1
+    this.id += 1
     const item = {
-      id: Table.id,
+      id: this.id,
       ...data
     }
     this.items.push(item)
