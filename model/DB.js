@@ -1,7 +1,7 @@
 const Table = require('./Table.js')
 
 class DB {
-  constructor(db) {
+  constructor() {
     this.products = new Table('products')
     this.messages = new Table('messages')
   }
