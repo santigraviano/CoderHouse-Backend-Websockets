@@ -1,5 +1,6 @@
 const socket = io()
 
+// Retorna una función
 const get_template = async (url) => {
   const fetch_template = await fetch(url)
   const template = await fetch_template.text()
