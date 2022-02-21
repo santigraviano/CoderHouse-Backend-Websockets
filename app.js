@@ -15,6 +15,8 @@ bootstrap(app)
 app.use('/', routes)
 
 io.on('connection', socket => {
+
+  socket.emit('products', JSON.stringify(products.all()))
   
   socket.on('post_product', data => {
     const item = JSON.parse(data)

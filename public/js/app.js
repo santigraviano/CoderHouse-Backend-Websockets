@@ -7,6 +7,19 @@ const get_template = async (url) => {
   return Handlebars.compile(template)
 }
 
+socket.on('products', async (products) => {
+  products = JSON.parse(products)
+
+  const item_template = await get_template('/static/templates/item.hbs')
+  const $tbody = document.getElementById('items_tbody')
+
+  for (const product of products) {
+    const $item = document.createElement('tr')
+    $item.innerHTML = item_template(product)
+    $tbody.appendChild($item)
+  }
+})
+
 $form = document.getElementById('add_product_form')
 
 $form.addEventListener('submit', e => {
